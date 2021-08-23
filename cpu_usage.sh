@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 idle_cpu=$(top -b -n1 | grep ^%Cpu | awk '{print $8}' | cut -d '.' -f1)
 
