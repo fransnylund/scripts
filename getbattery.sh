@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 batt=$(cat /sys/class/power_supply/BAT?/capacity)
 

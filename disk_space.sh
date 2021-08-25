@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 disk=$(df -h | grep /$ | awk '{print $5}')
 
