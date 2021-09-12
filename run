@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Docker run script
+
+exec docker run -it --rm $1
