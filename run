@@ -2,4 +2,4 @@
 
 # Docker run script
 
-exec docker run -it --rm $1
+exec docker run -it --rm "$1"

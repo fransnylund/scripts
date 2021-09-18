@@ -5,7 +5,7 @@
 
 time=$(date +"%R:%S")
 
-name=$time.png
+name=${time}.png
 
-import ~/Pictures/$name
+import ~/Pictures/"$name"
 
