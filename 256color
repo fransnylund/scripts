@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Prints all 256 colors
+
+for i in {0..255}
+do
+  printf "\033[38;5;${i}m ${i}"
+done
+
+printf "\n"
