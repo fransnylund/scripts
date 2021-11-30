@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Backup file? (y/n)"
+read resp
+[ "$resp" = 'y' ] && cp -r ~/website/* ~/github/website-backup/
+rsync -vrPl --delete-after ~/website/ root@fransnylund.com:/var/www/fransnylund
