@@ -1,4 +1,4 @@
 #!/bin/sh
 
-nasm -f elf64 $1
-ld ${1%.asm}.o -o ${1%.asm}
+nasm -f elf64 "$1"
+ld "${1%.asm}.o" -o "${1%.asm}"
