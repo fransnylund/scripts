@@ -2,19 +2,27 @@
 
 
 [[ ! -d "$SCRIPTS" ]] && echo 'The variable SCRIPTS is not defined.' && exit 1
-[[ ! -n "$@" ]] && echo "Usage: new-script <file>" && exit 1
+[[ -z "$1" ]] && echo "Usage: new-script <file>" && exit 1
+
+filepath="$SCRIPTS/$1"
+
 
 for i in "$@"; do
-    [[ -e "$i" ]] && \
-    read -p "$i already exists. Do you want to edit it?" ans
-    case $ans in
-	y|yes|yup|Y|Yes|YES) touch "$i";;
+    [[ -f "$filepath" ]] && \
+        read -p "$i already exists. Do you want to edit it? (y/n)" ans
+
+    case "$ans" in
+	y|yes|yup|Y|Yes|YES) exec vim "$filepath"; exit;;
+
+    n|N|no|NO|nope|Nope|NOPE) \
+         read -p "*WARNING* Are you sure you want to overwrite $1? (y/n)" ans2
+         [[ "$ans2" == "n" || "$ans2" == "N" || "$ans2" == "no" || "$ans2" == "NO" ]] && exit
     esac
 done
 
-printf "#!/bin/bash\n\n\n" >> "$i"
-touch "$i"
-chmod +x "$i"
-exec vim +3 "$i"
+printf "#!/bin/bash\n\n\n" > "$filepath"
+touch "$filepath"
+chmod +x "$filepath"
+exec vim +3 "$filepath"
 
 
