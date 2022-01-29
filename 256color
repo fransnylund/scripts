@@ -4,7 +4,7 @@
 
 for i in {0..255}
 do
-  printf "\033[38;5;${i}m ${i}"
+  printf "\033[38;5;%dm ${i}" "$i"
 done
 
 printf "\n"

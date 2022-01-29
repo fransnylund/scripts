@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-[[ ! -d "$SCRIPTS" ]] && echo 'The variable SCRIPTS is not defined.' && exit 1
-[[ -z "$1" ]] && echo "Usage: new-script <file>" && exit 1
+[[ ! -d "$SCRIPTS" ]] && echo 'The variable SCRIPTS is not defined.' >&2 && exit 1
+[[ -z "$1" ]] && echo "Usage: new-script <file>" >&2 && exit 1
 
 filepath="$SCRIPTS/$1"
 
